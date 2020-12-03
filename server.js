@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const mongoDB = 'mongodb+srv://lea_admin_willie:Dndmongodb_forlea44!@lea0-hs7rh.mongodb.net/to_do_list_db?retryWrites=true&w=majority'; 
+const mongoDB = ''; 
 var Item = require('./models/ToDo.js'); 
 var List = require('./models/ToDoItem.js'); 
 
