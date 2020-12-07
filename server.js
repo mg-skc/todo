@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const mongoDB = ''; 
-var Item = require('./models/ToDo.js'); 
-var List = require('./models/ToDoItem.js'); 
+var List = require('./models/ToDo.js'); 
+var Item = require('./models/ToDoItem.js'); 
 
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true}, (err, client) => {
     if(err) return console.error(err);
