@@ -19,12 +19,12 @@ async function itemCardDisplay(body) {
     let card = "<div class='card bg-dark'>";
     card += "<div class='card-header'>"+ "Assignee: "+ body.assignee +"</div>";
     card += "<div class='card-body'>";
-    card += "<h5 class='card-title'>" + "To Do Item: "+ body.itemName + "</h5>";
+    card += "<h5 class='card-title'>" + body.itemName + "</h5>";
     card += "<p class='card-text'>" + "Priority: "+ body.itemPriority + "</p>";
-    card += "<p class='card-text'>" + "System ID: "+body._id + "</p>";
     card += "<p class='card-text'>" + "Completed?  "+body.completed + "</p>";
+    card += "<p class='card-text'><small>" + "Last Updated: "+body.updatedAt + "</small></p>";
     card += "</div>";
-    card += "<div class='card-footer'><small>"+"Last Updated: "+body.updatedAt+"</small></div>"
+    card += "<div class='card-footer'><small>"+"System ID: "+body._id +"</small></div>"
     card += "</div>";
     card += "</div>";
 

@@ -19,55 +19,80 @@
    <div class='card text-center handfont font-effect-outline'>
        <h1 class='display-3'>Mad's Task List</h1> 
     </div>
-<button onclick="clickButton()" class="btn btn-dark">Click here for your To Do's </button>
-<div id="itemcards" class='card-deck'>
+<button onclick="clickButton()" class="btn btn-dark">Click to see your To Do's </button>
+<br>
+<br>
+<br>
+<div id="itemcards" class='card-columns'>
 </div>
-
 <div>
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-            <div role="separator" class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
-          </div>
-        </div>
-        <input type="text" class="form-control" aria-label="Text input with dropdown button">
+    <button onclick="" class="btn btn-dark">Add To Do's</button>
+    <button onclick="" class="btn btn-dark">Change</button>
+    <button onclick="" class="btn btn-dark">Delete</button>
+    <button onclick="" class="btn btn-dark">Search</button>
+    <br>
+    <br>
+
+            <div>
+             <input type="text" class="form-control" placeholder="To Do Name"> 
+            <br> 
+            </div>
+            
+            <div class='card bg-dark'>
+            <div class='card-header'><h4>Priority</h4></div>
+            <div class="input-group mb-3">
+            <div class="form-check-inline">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input" name="optradio">High
+                </label>
+              </div>
+              <div class="form-check-inline">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input" name="optradio">Medium
+                </label>
+              </div>
+              <div class="form-check-inline">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input" name="optradio">Low
+                </label>
+              </div>
+              
+            </div> 
+            
+        </div> 
+    </div>
+</div> 
+
+            <div class='card bg-dark'>
+                <div class='card-header'><h4>Completion Status</h4></div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+              <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-success active">
+                  <input type="radio" name="compStatus" id="compTrue" autocomplete="off" checked> True
+                </label>
+                <label class="btn btn-danger">
+                  <input type="radio" name="compStatus" id="compFalse" autocomplete="off"> False
+                </label>
+                </div> 
+           
+    </div>
       </div>
+    </div>  
 </div>
-<div class="card-deck">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-      </div>
-    </div>
-  </div>
 </div>
+</div> 
 <!--load javascript files into it-->  
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>  
 <script src="todo2.js"></script> 
+<script>
+    $(".dropdown-menu a ").click(function(){
+                $(this).parents(".input-group-btn").find('.btn').text($(this).text());
+            });
+</script>
 </body>
 </html>
 

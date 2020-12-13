@@ -4,6 +4,8 @@ body {
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+    font-family: 'Lato';
+    color: whitesmoke;
   }
 
 .handfont {
