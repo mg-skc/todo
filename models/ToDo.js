@@ -15,6 +15,13 @@ const listSchema = new Schema({
 
 module.exports = mongoose.model("List", listSchema); 
 
+var nameSchema = new mongoose.Schema({
+    firstName: String,
+    lastNameName: String
+   });
+module.exports = mongoose.model("User", nameSchema);   
+   
+
 /*Embedding:
 
 Small subdocuments

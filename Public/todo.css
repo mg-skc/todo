@@ -1,0 +1,22 @@
+body {
+    background: url(absolutvision-82TpEld0_e4-unsplash.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+  }
+
+.handfont {
+    font-family:'Patrick Hand'; 
+    color: whitesmoke;
+    background-color: transparent;
+    
+
+}
+
+#itemcards {
+    font-family: 'Lato';
+    color: whitesmoke;
+
+}
+
