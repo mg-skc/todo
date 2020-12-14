@@ -1,5 +1,5 @@
 body {
-    background: url(absolutvision-82TpEld0_e4-unsplash.jpg) no-repeat center center fixed;
+    background: url(absolutvision-82TpEld0_e4-unsplash.jpg) /*no-repeat center center fixed*/;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -26,6 +26,6 @@ body {
     }
 
 
-    
+
 
 
