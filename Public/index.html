@@ -17,71 +17,78 @@
 <body>
     <div class='container'>
    <div class='card text-center handfont font-effect-outline'>
-       <h1 class='display-3'>Mad's Task List</h1> 
+       <h1 class='display-3'>Mad's To Do List</h1> 
     </div>
-<button onclick="clickButton()" class="btn btn-dark">Click to see your To Do's </button>
+<button onclick="clickButton()" class="btn btn-dark btn-lg">Start Here:  Find all To Do's </button>
 <br>
 <br>
+<button data-toggle="collapse" class="btn btn-secondary btn-md" data-target="#itemcards">Close/Open To Do List</button>
 <br>
-<div id="itemcards" class='card-columns'>
+<br>
+<div id="itemcards" class='card-columns collapse show'>
+</div>
+<div>
+  <br>
+  <br>
 </div>
 <div>
     <button onclick="" class="btn btn-dark">Add To Do's</button>
     <button onclick="" class="btn btn-dark">Change</button>
     <button onclick="" class="btn btn-dark">Delete</button>
     <button onclick="" class="btn btn-dark">Search</button>
+    <button data-toggle="collapse" class="btn btn-secondary btn-md" data-target="#itemcards">Close/Open To Do List</button>
+  </div>
+    <div> 
     <br>
     <br>
-
-            <div>
-             <input type="text" class="form-control" placeholder="To Do Name"> 
-            <br> 
-            </div>
-            
-            <div class='card bg-dark'>
-            <div class='card-header'><h4>Priority</h4></div>
-            <div class="input-group mb-3">
-            <div class="form-check-inline">
-                <label class="form-check-label">
-                  <input type="radio" class="form-check-input" name="optradio">High
-                </label>
-              </div>
-              <div class="form-check-inline">
-                <label class="form-check-label">
-                  <input type="radio" class="form-check-input" name="optradio">Medium
-                </label>
-              </div>
-              <div class="form-check-inline">
-                <label class="form-check-label">
-                  <input type="radio" class="form-check-input" name="optradio">Low
-                </label>
-              </div>
-              
-            </div> 
-            
-        </div> 
-    </div>
-</div> 
-
-            <div class='card bg-dark'>
-                <div class='card-header'><h4>Completion Status</h4></div>
+    <input type="text" class="form-control" placeholder="To Do Name" name ="itemName"> 
+     <br> 
+     </div> 
+            <div class='card text-center bg-dark mx-auto form-check-inline'>
+                <div class='card-header'><h4>Priority</h4></div>
                 <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-              <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-success active">
-                  <input type="radio" name="compStatus" id="compTrue" autocomplete="off" checked> True
-                </label>
-                <label class="btn btn-danger">
-                  <input type="radio" name="compStatus" id="compFalse" autocomplete="off"> False
-                </label>
+                    <div class="input-group-prepend mx-auto">
+                      <div class="form-check ">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" name="priHigh">High</label>
+                      </div>
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" name="priMed">Medium</label>
+                      </div>
+                      <div class="form-check disabled text-center-up">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input`" name="priLow">Low</label>
+                      </div>
                 </div> 
            
     </div>
-      </div>
+    </div>
+    <div><br></div>
+    <div> 
+      <br>
+      <input type="text" class="form-control" placeholder="To Do Assignee" name ="itemAssignee"> 
+       <br> 
+       </div> 
+
+     <div class='card bg-dark  mx-auto form-check-inline'>
+       <div class='card-header text-left'><h4>Completion Status</h4>
+        </div>
+       <div class="input-group mb-3">
+           <div class="input-group-prepend mx-auto">
+        <div class="btn-group btn-group-toggle mx-auto" data-toggle="buttons">
+       <label class="btn btn-success active mx-auto">
+         <input type="radio" name="compStatus" id="compTrue" autocomplete="off" checked> True
+       </label>
+       <label class="btn btn-danger mx-auto">
+         <input type="radio" name="compStatus" id="compFalse" autocomplete="off"> False
+       </label>
+       </div> 
+     </div> 
+   </div> 
+ </div>
+ 
     </div>  
-</div>
-</div>
-</div> 
 <!--load javascript files into it-->  
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
