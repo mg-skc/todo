@@ -10,6 +10,7 @@ const { body,validationResult } = require('express-validator');
 //load local port 
 const port = 3000;
 var bodyParser = require('body-parser');
+const { response } = require('express');
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
@@ -59,16 +60,33 @@ app.get('/items', function(request,response){
     }); 
 });
 
-app.post("/additem", (req, res) => {
-    var myData = new Item(req.body);
-    myData.save()
-    .then(item => {
-    res.send("item saved to database");
+//888888888888888********WHERE I AM WITH CODING
+app.post("/items", (request, response) => {
+    console.log(request.body);
+    let item = new Item(request.body);
+    item.save((err, item) => {
+        if (err){
+            response.sendStatus(500);
+            return console.error(err);
+        }
+        response.sendStatus(200);
     })
-    .catch(err => {
-    res.status(400).send("unable to save to database");
-    });
-   });
+});
+ //  [4:34 PM] Kaitlyn Schieferecke
+/*    
+app.post('/posttask', (request, response) => {​​​​​
+letnode = newTask(request.body);
+node.save(function(error,node){​​​​​
+if(error){​​​​​
+response.sendStatus(500);
+returnconsole.error(error)
+}​​​​​;
+response.sendStatus(200);
+returnnode;
+}​​​​​)
+}​​​​​);
+*/
+
    
 
 

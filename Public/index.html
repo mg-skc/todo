@@ -32,13 +32,16 @@
   <br>
 </div>
 
-<div>
-    <button onclick="" class="btn btn-dark">Add To Do's</button>
-  </div>
+<!--ADD A TO DO SECTION-->
+
+<div class='card text-center handfont font-effect-outline'>
+  <h3 class='display-4'>Add a To Do</h3> 
+</div>
+
     <div name="addToDoForm"> 
     <br>
     <br>
-    <input type="text" class="form-control" placeholder="To Do Name" name ="itemName"> 
+    <input type="text" class="form-control" placeholder="To Do Name" name ="itemName" id="itemName"> 
      <br> 
      </div> 
             <div class='card text-center bg-dark mx-auto form-check-inline'>
@@ -47,15 +50,15 @@
                     <div class="input-group-prepend mx-auto">
                       <div class="form-check ">
                         <label class="form-check-label">
-                          <input type="radio" class="form-check-input" name="priHigh">High</label>
+                          <input type="radio" class="form-check-input" name="itemPriority" id="itemPriority" value="High">High</label>
                       </div>
                       <div class="form-check">
                         <label class="form-check-label">
-                          <input type="radio" class="form-check-input" name="priMed">Medium</label>
+                          <input type="radio" class="form-check-input" name="itemPriority" id="itemPriority" value="Medium">Medium</label>
                       </div>
                       <div class="form-check disabled text-center-up">
                         <label class="form-check-label">
-                          <input type="radio" class="form-check-input`" name="priLow">Low</label>
+                          <input type="radio" class="form-check-input`" name="itemPriority" id="itemPriority" value="Low">Low</label>
                       </div>
                 </div> 
            
@@ -63,23 +66,20 @@
     </div>
     <div><br></div>
     <div> 
-      <br>
-      <input type="text" class="form-control" placeholder="To Do Assignee" name ="itemAssignee"> 
+      <input type="text" class="form-control" placeholder="To Do Assignee" name ="itemAssignee" id="itemAssignee"> 
        <br> 
        </div> 
 
      <div class='card bg-dark  mx-auto form-check-inline'>
-       <div class='card-header text-left'><h4>Completion Status</h4>
+       <div class='card-header'><h4>Completion Status</h4>
         </div>
        <div class="input-group mb-3">
            <div class="input-group-prepend mx-auto">
         <div class="btn-group btn-group-toggle mx-auto" data-toggle="buttons">
        <label class="btn btn-success active mx-auto">
-         <input type="radio" name="compStatus" id="compTrue" autocomplete="off" checked> True
-       </label>
+         <input type="radio" name="compStatus" id="itemCompleted" value="true" > True</label>
        <label class="btn btn-danger mx-auto">
-         <input type="radio" name="compStatus" id="compFalse" autocomplete="off"> False
-       </label>
+         <input type="radio" name="compStatus" id="itemCompleted" value="false" > False</label>
        </div> 
      </div> 
    </div> 
@@ -89,73 +89,100 @@
  <div>
   <br> 
   <br> 
+  <div>
+    <div class="row">
+    <div class="col-sm-5"></div>
+      <button onclick="clickAddToDo()" class="btn btn-success col-sm-2">Click to Add</button>
+      <div class="col-sm-5"></div>
+    </div>
+    </div>
  </div>
- <div class="row">
-   <div class="col-sm-5"></div>
-  <button onclick="" class="btn btn-dark col-sm-2">Add To Do's</button>
-  <div class="col-sm-5"></div>
-</div>
-</div>
-  <div name="addToDoForm"> 
-  <br>
-  <br>
-  <div class="row">
-  <div class="col sm-2"></div> 
-  <input type="text" class="form-control col-sm-9" placeholder="To Do Name" name ="itemName"> 
-  <div class="col sm-2"></div>
-   </div> 
-  </div>
-    
-</div>
+ <div>
+  <br> 
+  <br> 
+ </div>
 
-          <div class='card text-center bg-dark mx-auto form-check-inline'>
+ <!--DELETE A TO DO SECTION-->
+ <!--DELETE A TO DO SECTION-->
+ <!--DELETE A TO DO SECTION-->
+
+ <div class='card text-center handfont font-effect-outline'>
+  <h3 class='display-4'>Delete a To Do</h3> 
+</div>
+<div name="deleteToDoForm"> 
+  <br>
+  <br>
+    <div class="row">
+      <div class="col sm-1"></div> 
+      <input type="text" class="form-control col-sm-10" placeholder="To Do Name" name ="itemName" id="delItemName"> 
+      <div class="col sm-1"></div>
+    </div> 
+  <div><br></div>
+
+    <div class="row">
+        <div class="col sm-1"></div> 
+          <div class='card text-center bg-dark mx-auto form-check-inline col-sm-10'>
               <div class='card-header'><h4>Priority</h4></div>
               <div class="input-group mb-3">
                   <div class="input-group-prepend mx-auto">
-                    <div class="form-check ">
+                    <div class="form-check">
                       <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="priHigh">High</label>
+                        <input type="radio" class="form-check-input" name="itemPriority" id="delItemPriority">High</label>
                     </div>
                     <div class="form-check">
                       <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="priMed">Medium</label>
-                    </div>
+                        <input type="radio" class="form-check-input" name="itemPriority"  id="delItemPriority">Medium</label>
+                      </div>
                     <div class="form-check disabled text-center-up">
                       <label class="form-check-label">
-                        <input type="radio" class="form-check-input`" name="priLow">Low</label>
-                    </div>
-              </div> 
-        </div> 
-  </div>
-  </div>
-  <div><br></div>
-  <div> 
-    <br>
-    <input type="text" class="form-control" placeholder="To Do Assignee" name ="itemAssignee"> 
-     <br> 
-     </div> 
-
-   <div class='card bg-dark  mx-auto form-check-inline'>
-     <div class='card-header text-left'><h4>Completion Status</h4>
+                        <input type="radio" class="form-check-input`" name="itemPriority"  id="delItemPriority">Low</label>
+                        
+                      
+                    </div> 
+                  </div>  
+                </div> 
+               
+            </div>  
+            <div class="col sm-1"></div>
       </div>
-     <div class="input-group mb-3">
-         <div class="input-group-prepend mx-auto">
-      <div class="btn-group btn-group-toggle mx-auto" data-toggle="buttons">
-     <label class="btn btn-success active mx-auto">
-       <input type="radio" name="compStatus" id="compTrue" autocomplete="off" checked> True
-     </label>
-     <label class="btn btn-danger mx-auto">
-       <input type="radio" name="compStatus" id="compFalse" autocomplete="off"> False
-     </label>
+  <div><br></div>
+    <div class="row">
+      <div class="col sm-1"></div> 
+      <input type="text" class="form-control col-sm-10" placeholder="To Do Assignee" name ="itemAssignee" id ="delItemAssignee"> 
+      <div class="col sm-1"></div> 
+    </div>
+  <div><br></div>
+  
+  <div class="row">
+    <div class="col sm-1"></div> 
+    <div class='card bg-dark form-check-inline col sm-10'>
+     <div class='card-header'><h4>Completion Status</h4>
+      </div>
+     <div class="input-group">
+        <div class="input-group-prepend"></div>
+      <div class="btn-group btn-group-toggle d-flex justify-content-center" data-toggle="buttons">
+     <label class="btn btn-success">
+       <input type="radio" name="compStatus" id="delItemCompleted" autocomplete="off" checked> True</label>
+     <label class="btn btn-danger active">
+       <input type="radio" name="compStatus" id="delItemCompleted" autocomplete="off"> False</label>
      </div> 
    </div> 
- </div> 
+    <div class="col sm-4"></div> 
+    </div> 
+  </div>
 </div>
+
+<div><br><br></div>
+
+<div class="row">
+  <div class="col-sm-5"></div>
+ <button onclick="" class="btn btn-danger col-sm-2">Click to Delete</button>
+ <div class="col-sm-5"></div>
 </div>
 
 
- 
- </div>  
+
+
 
     
 

@@ -66,3 +66,52 @@ function clickButton(){
         console.log(err);
     });
 };
+
+function clickAddToDo(){
+    /* getToDoList().then(function(body){
+         for(let i = 0; i < body.length; i++){
+             console.log(body[i].itemName); 
+         } */
+     addToDo().then(function(body){
+         //getToDoList();
+         console.log('made it to 75');
+          console.log(body); 
+
+
+         
+     }).catch(function(err){
+         console.log(err);
+     });
+ };
+
+async function addToDo(){
+    //var itemTdPriority = document.querySelector('input[name=itemPriority]:checked').value;
+    console.log(document.querySelector('input[name=itemPriority]:checked').value);
+    //var itemTdCompleted = document.querySelector('input[name="compStatus"]:checked').value;
+    console.log(document.querySelector('input[name="compStatus"]:checked').value);
+    //figure out which radio button is selected 
+   // let radio  = document blah lah name in html and loop per stack overflow, if checked!
+   //set itemPriority to radio, etc.
+    let item = {
+        itemName : document.getElementById("itemName").value, 
+        itemPriority : document.querySelector('input[name=itemPriority]:checked').value,
+        assignee : document.getElementById("itemAssignee").value,
+        completed : document.querySelector('input[name="compStatus"]:checked').value
+    } 
+
+   console.log (item);
+   
+    let requestOptions = {
+        method: 'POST',
+        body: JSON.stringify(item),
+        headers: {'Content-Type': 'application/json'}
+    }
+
+
+    const response = await fetch('/items', requestOptions);
+    if (response.status != 200){
+        throw Error('task not saved!');
+    }   
+    window.location.href = 'index.html';
+    return true;
+}
