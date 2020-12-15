@@ -108,17 +108,18 @@
 
  <div class='card text-center handfont font-effect-outline'>
   <h3 class='display-4'>Delete a To Do</h3> 
+  <h3 class="text-center-up">Please look at the full listing of To Do's above and copy the System ID.</h3>
+  <h3 class="text-center-up">Type or copy/paste in the System ID below and click the red button to Delete.</h3>
 </div>
 <div name="deleteToDoForm"> 
   <br>
   <br>
     <div class="row">
-      <div class="col sm-1"></div> 
-      <input type="text" class="form-control col-sm-10" placeholder="To Do Name" name ="itemName" id="delItemName"> 
-      <div class="col sm-1"></div>
+      <div class="col sm-4"></div> 
+      <input type="text" class="form-control col-sm-4" placeholder="System ID" name ="delSystemId" id="delSystemId"> 
+      <div class="col sm-4"></div>
     </div> 
-  <div><br></div>
-
+<!--COMMENTING OUT FOR POTENTIAL LATER USE
     <div class="row">
         <div class="col sm-1"></div> 
           <div class='card text-center bg-dark mx-auto form-check-inline col-sm-10'>
@@ -171,14 +172,18 @@
     </div> 
   </div>
 </div>
-
-<div><br><br></div>
+-->
+<div id ="deleteSuccessCopy" class="text-center-up font-effect-outline">
+</div>
 
 <div class="row">
   <div class="col-sm-5"></div>
- <button onclick="" class="btn btn-danger col-sm-2">Click to Delete</button>
+ <button onclick="clickDeleteToDo()" class="btn btn-danger col-sm-2">Click to Delete</button>
  <div class="col-sm-5"></div>
 </div>
+<div><br></div>
+<div><br></div>
+
 
 
 

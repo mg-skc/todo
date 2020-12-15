@@ -23,9 +23,13 @@ body {
 }
 .text-center-up{
     text-align: center;
+    font-family:'Patrick Hand'; 
     }
 
-
+#deleteSuccessCopy {
+        color: whitesmoke;
+        font-size: x-large;
+}
 
 
 

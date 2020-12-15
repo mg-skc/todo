@@ -72,20 +72,16 @@ app.post("/items", (request, response) => {
         response.sendStatus(200);
     })
 });
- //  [4:34 PM] Kaitlyn Schieferecke
-/*    
-app.post('/posttask', (request, response) => {​​​​​
-letnode = newTask(request.body);
-node.save(function(error,node){​​​​​
-if(error){​​​​​
-response.sendStatus(500);
-returnconsole.error(error)
-}​​​​​;
-response.sendStatus(200);
-returnnode;
-}​​​​​)
-}​​​​​);
-*/
+
+app.delete('/items/:id', async (request, response) => {
+    try {
+        await Task.deleteOne({_id: request.params.id});
+        response.sendStatus(204);
+    } catch {
+        response.sendStatus(404);
+    }
+});
+
 
    
 

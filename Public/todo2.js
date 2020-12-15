@@ -74,7 +74,6 @@ function clickAddToDo(){
          } */
      addToDo().then(function(body){
          //getToDoList();
-         console.log('made it to 75');
           console.log(body); 
 
 
@@ -115,3 +114,35 @@ async function addToDo(){
     window.location.href = 'index.html';
     return true;
 }
+
+function clickDeleteToDo(){
+    /* getToDoList().then(function(body){
+         for(let i = 0; i < body.length; i++){
+             console.log(body[i].itemName); 
+         } */
+     deleteToDo().then(function(body){
+         
+          console.log(body); 
+
+
+         
+     }).catch(function(err){
+         console.log(err);
+     });
+ };
+
+ async function deleteToDo(itemSyId){
+    let requestOptions = {
+        method: 'DELETE', 
+        headers: {'Content-Type': 'application/json'}
+    }
+    let deleteId = itemSyId;
+
+    const response = await fetch('/items' + deleteId, requestOptions);
+    if (response.status != 204){
+        throw Error('task not deleted');
+    }
+    document.getElementById("deleteSuccessCopy").innerHTML = "Delete Successful";
+    return true;
+}
+
