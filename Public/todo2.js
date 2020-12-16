@@ -36,7 +36,19 @@ async function getToDoList(){
 async function itemCardDisplay(body) {
     // Function for display article data and generating a bootstrap card
     let card = "<div class='card bg-dark'>";
-    card += "<div class='card-header'>"+ "Assignee: "+ body.assignee +"</div>";
+    card += "<div class='card-header container-fluid'>"+ "Assignee: "+ body.assignee +"</div>";
+ /*   card += "<div class='card-header container-fluid'>"+ "Assignee: "+ body.assignee +"</div>";
+    card += "<div class='row'>";
+    card += "<div class='col-md-10>";
+    card += "<h3>"+ "Assignee: "+ body.assignee +"</h3>";
+    card += "</div>";
+    
+    card += "<div class='col-md-2 float-right'>";
+    card += "<button class='btn btn-danger' onclick='clickDeleteToDo()'><i class='far fa-trash-alt'></i></button>";
+    card += "<button class='btn btn-warning' onclick=''><i class='fas fa-edit'></i></button>"; 
+    card += "</div>";  
+    card += "</div>";  
+    card += "</div>";  */
     card += "<div class='card-body'>";
     card += "<h5 class='card-title'>" + body.itemName + "</h5>";
     card += "<p class='card-text'>" + "Priority: "+ body.itemPriority + "</p>";
@@ -50,6 +62,7 @@ async function itemCardDisplay(body) {
     // Append the new item card to the item section section div
     $("#itemcards").append(card)
 };
+
 
 function clickButton(){
    /* getToDoList().then(function(body){
@@ -109,7 +122,7 @@ async function addToDo(){
 
     const response = await fetch('/items', requestOptions);
     if (response.status != 200){
-        throw Error('task not saved!');
+        throw Error('item not saved!');
     }   
     window.location.href = 'index.html';
     return true;
@@ -131,18 +144,45 @@ function clickDeleteToDo(){
      });
  };
 
- async function deleteToDo(itemSyId){
+ async function deleteToDo(){
     let requestOptions = {
         method: 'DELETE', 
         headers: {'Content-Type': 'application/json'}
     }
-    let deleteId = itemSyId;
+    let deleteId = document.getElementById('delSystemId').value;
 
-    const response = await fetch('/items' + deleteId, requestOptions);
+    const response = await fetch('/items/'+ deleteId, requestOptions);
     if (response.status != 204){
-        throw Error('task not deleted');
+        throw Error('item not deleted!');
     }
+    //document.getElementById("delSystemId").innerHTML = " ";
     document.getElementById("deleteSuccessCopy").innerHTML = "Delete Successful";
     return true;
 }
 
+function clickGetEditToDo(){
+   
+     getEditToDo().then(function(body){
+         
+         document.getElementById('editItemName').innerHTML=body.itemName;
+         document.getElementById('editItemPriority').value.checked=body.itemPriority;
+         document.getElementById('editItemAssignee').innerHTML=body.assignee;
+         document.getElementById('editItemCompleted').value.checked=body.completed; 
+         console.log(body); 
+     }).catch(function(err){
+         console.log(err);
+     });
+ };
+async function getEditToDo(){
+    let requestOptions = {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'}
+    }
+    let getEditId = document.getElementById('editSystemId').value;
+    const response = await fetch('/items/' + getEditId, requestOptions);
+    const body = await response.json();
+    if (response.status != 200){
+        throw Error('Error!');
+    }
+    return body;
+}

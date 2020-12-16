@@ -31,5 +31,15 @@ body {
         font-size: x-large;
 }
 
+.icon-play{
+    background-image : url(../img/Clock-Play.png);
+    background-size: cover;
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+  }
+
+  /* <i class="far fa-trash-alt"></i>
+
 
 

@@ -8,6 +8,7 @@
 <head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link href="todo.css" rel="stylesheet">
+<script src="https://use.fontawesome.com/3d908b5da5.js"></script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Patrick+Hand|Lato">
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Patrick+Hand&effect=shadow-multiple|outline'>
 <title>Mad's To Do List</title>
@@ -183,6 +184,91 @@
 </div>
 <div><br></div>
 <div><br></div>
+
+<!--EDIT       TO DO SECTION-->
+<!--EDIT       TO DO SECTION-->
+<!--EDIT       TO DO SECTION-->
+
+<div class='card text-center handfont font-effect-outline'>
+  <h3 class='display-4'>Edit a To Do</h3> 
+  <h3 class="text-center-up">Please look at the full listing of To Do's above and copy the System ID.</h3>
+  <h3 class="text-center-up">Type or copy/paste in the System ID below and click the yellow button to Edit.</h3>
+</div>
+    
+    <br>
+    <br>
+    <div class="row">
+      <div class="col sm-4"></div> 
+      <input type="text" class="form-control col-sm-4" placeholder="System ID" name ="editSystemId" id="editSystemId"> 
+      <div class="col sm-4"></div>
+    </div> 
+    <div class="row">
+      <div class="col-sm-5"></div>
+     <button onclick="clickGetEditToDo()" class="btn btn-warning col-sm-2">Click to Edit</button>
+     <div class="col-sm-5"></div>
+    </div>
+    <br>
+    <br>
+    <div name="editToDoForm" id="editToDoForm" class = "collapse show"> 
+    <input type="text" class="form-control" placeholder="To Do Name" name ="editItemName" id="editItemName"> 
+     <br>  
+            <div class='card text-center bg-dark mx-auto form-check-inline'>
+                <div class='card-header'><h4>Priority</h4></div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend mx-auto">
+                      <div class="form-check ">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" name="editItemPriority" id="editItemPriority" value="High">High</label>
+                      </div>
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" name="editItemPriority" id="editItemPriority" value="Medium">Medium</label>
+                      </div>
+                      <div class="form-check disabled text-center-up">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input`" name="editItemPriority" id="editItemPriority" value="Low">Low</label>
+                      </div>
+                </div> 
+           
+    </div>
+    </div>
+    <div><br></div>
+    <div> 
+      <input type="text" class="form-control" placeholder="To Do Assignee" name ="editItemAssignee" id="editItemAssignee"> 
+       <br> 
+       </div> 
+
+     <div class='card bg-dark  mx-auto form-check-inline'>
+       <div class='card-header'><h4>Completion Status</h4>
+        </div>
+       <div class="input-group mb-3">
+           <div class="input-group-prepend mx-auto">
+        <div class="btn-group btn-group-toggle mx-auto" data-toggle="buttons">
+       <label class="btn btn-success active mx-auto">
+         <input type="radio" name="compStatus" id="editItemCompleted" value="true" > True</label>
+       <label class="btn btn-danger mx-auto">
+         <input type="radio" name="compStatus" id="editItemCompleted" value="false" > False</label>
+       </div> 
+     </div> 
+   </div> 
+ </div>
+ </div>
+
+
+ <div><br><br></div>
+
+    <div class="row">
+    <div class="col-sm-5"></div>
+      <button onclick="clickUpdateToDo()" class="btn btn-primary col-sm-2">Click to Update</button>
+      <div class="col-sm-5"></div>
+    </div>
+    </div>
+ <div>
+
+  <br> 
+  <br> 
+ </div>
+
 
 
 

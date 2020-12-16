@@ -75,12 +75,24 @@ app.post("/items", (request, response) => {
 
 app.delete('/items/:id', async (request, response) => {
     try {
-        await Task.deleteOne({_id: request.params.id});
+        await Item.deleteOne({_id: request.params.id});
         response.sendStatus(204);
     } catch {
         response.sendStatus(404);
+        console.log('didnt find it!');
     }
 });
+
+
+app.get('/items/:id', (request, response) => {
+    Item.findOne({_id: request.params.id}).exec((err, item) => {
+        if (err) return console.error(err);
+        response.send(item);
+    })
+});
+
+//router.delete("/remove:studId"
+
 
 
    
