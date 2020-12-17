@@ -34,21 +34,10 @@ async function getToDoList(){
     
 
 async function itemCardDisplay(body) {
+  
     // Function for display article data and generating a bootstrap card
     let card = "<div class='card bg-dark'>";
     card += "<div class='card-header container-fluid'>"+ "Assignee: "+ body.assignee +"</div>";
- /*   card += "<div class='card-header container-fluid'>"+ "Assignee: "+ body.assignee +"</div>";
-    card += "<div class='row'>";
-    card += "<div class='col-md-10>";
-    card += "<h3>"+ "Assignee: "+ body.assignee +"</h3>";
-    card += "</div>";
-    
-    card += "<div class='col-md-2 float-right'>";
-    card += "<button class='btn btn-danger' onclick='clickDeleteToDo()'><i class='far fa-trash-alt'></i></button>";
-    card += "<button class='btn btn-warning' onclick=''><i class='fas fa-edit'></i></button>"; 
-    card += "</div>";  
-    card += "</div>";  
-    card += "</div>";  */
     card += "<div class='card-body'>";
     card += "<h5 class='card-title'>" + body.itemName + "</h5>";
     card += "<p class='card-text'>" + "Priority: "+ body.itemPriority + "</p>";
@@ -61,7 +50,7 @@ async function itemCardDisplay(body) {
     card += "<a href='' data-id="+body._id+" onclick='clickDeleteToDo(\"" +body._id+ "\")' class= 'item-delete btn btn-danger btn-sm' role='button' aria-pressed='true'>Delete</a></div>"
     card += "</div>";
     card += "</div>";
-
+    
     // Append the new item card to the item section section div
     $("#itemcards").append(card)
 };
@@ -73,6 +62,7 @@ function clickButton(){
             console.log(body[i].itemName); 
         } */
     getToDoList().then(function(body){
+        $("#itemcards").empty();
         for(let i = 0; i < body.length; i++){
             itemCardDisplay(body[i]); 
             } 
