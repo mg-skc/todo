@@ -102,7 +102,7 @@ app.post("/items/:id", (request, response) => {
     })
 });
 
-/* MY POST FROM ABOVE
+/* MY POST FROM ABOVE for a new record
 app.post("/items", (request, response) => {
     console.log(request.body);
     let item = new Item(request.body);

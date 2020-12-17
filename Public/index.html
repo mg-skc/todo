@@ -13,43 +13,44 @@
 
 </head>
 <body>
-    <div class='container'>
-   <div class='card text-center handfont font-effect-outline'>
-       <h1 class='display-3'>Mad's To Do List</h1> 
-    </div>
-<button onclick="clickButton()" class="btn btn-dark btn-lg">Start Here:  Find all To Do's </button>
-<br>
-<br>
-<button data-toggle="collapse" class="btn btn-secondary btn-md" data-target="#itemcards">Close/Open To Do List</button>
-<br>
-<br>
-<div id ="deleteSuccessCopy" class="text-center-up font-effect-outline">
-</div>
-<!-- WHERE ITEM CARDS GET PLACED ON THE GET TO DO LIST-->
-<div id="itemcards" class='card-columns collapse show'>
-</div>
-<div>
-  <br>
-  <br>
-</div>
+<div class='container'>
+    <div class='card text-center handfont font-effect-outline'>
+        <h1 class='display-2'>Mad's To Do List</h1> 
+      </div>
+      <br>
+    <button onclick="clickButton()" class="btn btn-dark btn-lg">Start Here:  Find all To Do's </button>
+      <br>
+      <br>
+      <button data-toggle="collapse" class="btn btn-secondary btn-md" data-target="#itemcards">Close/Open To Do List</button>
+      <br>
+      <br>
+      <div id ="deleteSuccessCopy" class="text-center-up font-effect-outline">
+      </div>
 
-<!--ADD A TO DO SECTION-->
+    <!-- WHERE ITEM CARDS GET PLACED ON THE GET TO DO LIST-->
 
-<div class='card text-center handfont font-effect-outline'>
-  <h3 class='display-4'>Add a To Do</h3> 
-</div>
+      <div id="itemcards" class='card-columns collapse show'>
+      </div>
+          <div>
+            <br>
+          </div>
 
-    <div name="addToDoForm"> 
-    <br>
-    <br>
-    <input type="text" class="form-control" placeholder="To Do Name" name ="itemName" id="itemName"> 
-     <br> 
-     </div> 
-            <div class='card text-center bg-dark mx-auto form-check-inline'>
+    <!--ADD A TO DO SECTION-->
+
+      <div class='card text-center handfont font-effect-outline'>
+        <h3 class='display-4'>Add a To Do</h3> 
+      </div>
+
+            <div name="addToDoForm"> 
+            <br>
+            <input type="text" class="form-control" placeholder="To Do Name" name ="itemName" id="itemName"> 
+            <br> 
+            </div> 
+            <div class='radio card text-center bg-dark mx-auto form-check-inline'>
                 <div class='card-header'><h4>Priority</h4></div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend mx-auto">
-                      <div class="form-check ">
+                      <div class="form-check">
                         <label class="form-check-label">
                           <input type="radio" class="form-check-input" name="itemPriority" id="itemPriority" value="High">High</label>
                       </div>
@@ -57,271 +58,120 @@
                         <label class="form-check-label">
                           <input type="radio" class="form-check-input" name="itemPriority" id="itemPriority" value="Medium">Medium</label>
                       </div>
-                      <div class="form-check disabled text-center-up">
+                      <div class="form-check">
                         <label class="form-check-label">
                           <input type="radio" class="form-check-input`" name="itemPriority" id="itemPriority" value="Low">Low</label>
                       </div>
-                </div> 
-           
-    </div>
-    </div>
-    <div><br></div>
-    <div> 
-      <input type="text" class="form-control" placeholder="To Do Assignee" name ="itemAssignee" id="itemAssignee"> 
-       <br> 
-       </div> 
-
-     <div class='card bg-dark  mx-auto form-check-inline'>
-       <div class='card-header'><h4>Completion Status</h4>
-        </div>
-       <div class="input-group mb-3">
-           <div class="input-group-prepend mx-auto">
-        <div class="btn-group btn-group-toggle mx-auto" data-toggle="buttons">
-       <label class="btn btn-success active mx-auto">
-         <input type="radio" name="compStatus" id="itemCompleted" value="true" > True</label>
-       <label class="btn btn-danger mx-auto">
-         <input type="radio" name="compStatus" id="itemCompleted" value="false" > False</label>
-       </div> 
-     </div> 
-   </div> 
- </div>
- </div>
-
- <div>
-  <br> 
-  <br> 
-  <div>
-    <div class="row">
-    <div class="col-sm-5"></div>
-      <button onclick="clickAddToDo()" class="btn btn-success col-sm-2">Click to Add</button>
-      <div class="col-sm-5"></div>
-    </div>
-    </div>
- </div>
- <div>
-  <br> 
-  <br> 
- </div>
-
- <!--DELETE A TO DO SECTION-->
- <!--DELETE A TO DO SECTION-->
- <!--DELETE A TO DO SECTION-->
-
- <!-- <div class='card text-center handfont font-effect-outline'>
-  <h3 class='display-4'>Delete a To Do</h3> 
-  <h3 class="text-center-up">Please look at the full listing of To Do's above and copy the System ID.</h3>
-  <h3 class="text-center-up">Type or copy/paste in the System ID below and click the red button to Delete.</h3>
-</div>
-<div name="deleteToDoForm"> 
-  <br>
-  <br>
-    <div class="row">
-      <div class="col sm-4"></div> 
-      <input type="text" class="form-control col-sm-4" placeholder="System ID" name ="delSystemId" id="delSystemId"> 
-      <div class="col sm-4"></div>
-    </div>  -->
-<!--COMMENTING OUT FOR POTENTIAL LATER USE
-    <div class="row">
-        <div class="col sm-1"></div> 
-          <div class='card text-center bg-dark mx-auto form-check-inline col-sm-10'>
-              <div class='card-header'><h4>Priority</h4></div>
-              <div class="input-group mb-3">
-                  <div class="input-group-prepend mx-auto">
-                    <div class="form-check">
-                      <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="itemPriority" id="delItemPriority">High</label>
-                    </div>
-                    <div class="form-check">
-                      <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="itemPriority"  id="delItemPriority">Medium</label>
-                      </div>
-                    <div class="form-check disabled text-center-up">
-                      <label class="form-check-label">
-                        <input type="radio" class="form-check-input`" name="itemPriority"  id="delItemPriority">Low</label>
-                        
-                      
                     </div> 
-                  </div>  
-                </div> 
-               
-            </div>  
-            <div class="col sm-1"></div>
-      </div>
-  <div><br></div>
-    <div class="row">
-      <div class="col sm-1"></div> 
-      <input type="text" class="form-control col-sm-10" placeholder="To Do Assignee" name ="itemAssignee" id ="delItemAssignee"> 
-      <div class="col sm-1"></div> 
-    </div>
-  <div><br></div>
-  
-  <div class="row">
-    <div class="col sm-1"></div> 
-    <div class='card bg-dark form-check-inline col sm-10'>
-     <div class='card-header'><h4>Completion Status</h4>
-      </div>
-     <div class="input-group">
-        <div class="input-group-prepend"></div>
-      <div class="btn-group btn-group-toggle d-flex justify-content-center" data-toggle="buttons">
-     <label class="btn btn-success">
-       <input type="radio" name="compStatus" id="delItemCompleted" autocomplete="off" checked> True</label>
-     <label class="btn btn-danger active">
-       <input type="radio" name="compStatus" id="delItemCompleted" autocomplete="off"> False</label>
-     </div> 
-   </div> 
-    <div class="col sm-4"></div> 
-    </div> 
-  </div>
-</div>
--->
-<!-- <div id ="deleteSuccessCopy" class="text-center-up font-effect-outline">
-</div> -->
-
-<!-- <div class="row">
-  <div class="col-sm-5"></div>
- <button onclick="clickDeleteToDo()" class="btn btn-danger col-sm-2">Click to Delete</button>
- <div class="col-sm-5"></div>
-</div>
-<div><br></div>
-<div><br></div> -->
-
-<!--EDIT       TO DO SECTION-->
-<!--EDIT       TO DO SECTION-->
-<!--EDIT       TO DO SECTION-->
-
-<div class='card text-center handfont font-effect-outline'>
-  <h3 class='display-4'>Edit a To Do</h3> 
-  <h3 class="text-center-up">Please look at the full listing of To Do's above and copy the System ID.</h3>
-  <h3 class="text-center-up">Type or copy/paste in the System ID below and click the yellow button to Edit.</h3>
-</div>
-    
-    <br>
-    <br> 
-    
-    <div class="row">
-      <div class="col sm-4"></div> 
-      <input type="text" class="form-control col-sm-4" placeholder="System ID" name ="editSystemId" id="editSystemId"> 
-      <div class="col sm-4"></div>
-    </div> 
-    <div class="row">
-      <div class="col-sm-5"></div>
-     <button class="btn btn-warning col-sm-2" data-toggle="collapse" data-target="#editToDoForm" onclick="clickGetEditToDo();href='#editArea'">Click to Edit</button>
-     <div class="col-sm-5"></div>
-    </div>
-     <br> 
-     <div id='editArea' class="col sm-4"></div> 
-     <div id="editId" class="row"> </div>
-     <div class="col sm-4"></div> 
-     <br>
-     <br> 
-  
-     
-    <br>
-    <br>
-  <div name="editToDoForm" id="editToDoForm" class = "collapse"> 
-    <input type="text" class="form-control" placeholder="To Do Name" name ="editItemName" id="editItemName"> 
-     <br>  
-            <div class='card text-center bg-dark mx-auto form-check-inline'>
-                <div class='card-header'><h4>Priority</h4></div>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend mx-auto">
-                      <div class="form-check ">
-                        <label class="form-check-label">
-                          <input type="radio" class="form-check-input" name="editItemPriority" id="editItemPriority" value="High">High</label>
-                      </div>
-                      <div class="form-check">
-                        <label class="form-check-label">
-                          <input type="radio" class="form-check-input" name="editItemPriority" id="editItemPriority" value="Medium">Medium</label>
-                      </div>
-                      <div class="form-check disabled text-center-up">
-                        <label class="form-check-label">
-                          <input type="radio" class="form-check-input`" name="editItemPriority" id="editItemPriority" value="Low">Low</label>
-                      </div>
-                   </div> 
            
-                </div>
+                  </div>
               </div>
-    <div><br></div>
-    <div> 
-      <input type="text" class="form-control" placeholder="To Do Assignee" name ="editItemAssignee" id="editItemAssignee"> 
-       <br> 
-    </div> 
+                  <div><br></div>
+                    <div> 
+                    <input type="text" class="form-control radio" placeholder="To Do Assignee" name ="itemAssignee" id="itemAssignee"> 
+                    <br> 
+                    </div> 
 
-     <div class='card bg-dark  mx-auto form-check-inline'>
-       <div class='card-header'><h4>Completion Status</h4>
-      </div>
-       <div class="input-group mb-3">
-           <div class="input-group-prepend mx-auto">
-        <div class="btn-group btn-group-toggle mx-auto" data-toggle="buttons">
-       <label class="btn btn-success active mx-auto">
-         <input type="radio" name="compStatus" id="editItemCompleted" value="true" > True</label>
-       <label class="btn btn-danger mx-auto"> 
-         <input type="radio" name="compStatus" id="editItemCompleted" value="false" > False</label>
-       </div> 
-      </div> 
-      </div> 
-    </div>
-        <div class="row">
-          <div class="col-sm-5">
+                  <div class='radio card bg-dark  mx-auto form-check-inline'>
+                    <div class='card-header'><h4>Completion Status</h4>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend mx-auto">
+                        <div class="btn-group btn-group-toggle mx-auto" data-toggle="buttons">
+                        <label class="btn btn-success active mx-auto">
+                        <input type="radio" name="compStatus" id="itemCompleted" value="true" > True</label>
+                        <label class="btn btn-danger mx-auto">
+                        <input type="radio" name="compStatus" id="itemCompleted" value="false" > False</label>
+                        </div> 
+                        </div> 
+                    </div> 
+                  </div>
+                <br> 
+                <div>
+                  <div class="row">
+                  <div class="col-sm-5"></div>
+                    <button onclick="clickAddToDo()" class="btn btn-success col-sm-2">Click to Add</button>
+                    <div class="col-sm-5"></div>
+                  </div>
+                  <br> 
+                  <br> 
+                </div>
+      
+      
+    
+
+        <!--EDIT       TO DO SECTION-->
+        <!--EDIT       TO DO SECTION-->
+        <!--EDIT       TO DO SECTION-->
+      <div class = "accordion" id="editToDoForm">
+        <div class='radio card text-center handfont font-effect-outline collapse'>
+            <h3 class='display-4 text-center-up'>Edit a To Do </h3> 
+            <div id='editArea' class="col sm-4"></div> 
+            <div id="editId" class="radio row"> </div>
+            <div class="col sm-4"></div> 
+                <br>
+            <input type="text" class="radio form-control" placeholder="To Do Name" name ="editItemName" id="editItemName"> 
+                <br>  
+                <div class='card bg-dark radio form-check-inline'>
+                    <div class='card-header'><h4>Priority</h4></div>
+                    
+                        <div class="input-group-prepend mx-auto">
+                          <div class="form-check ">
+                            <label class="form-check-label">
+                              <input type="radio" class="form-check-input" name="editItemPriority" id="editItemPriority" value="High">High</label>
+                          </div>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input type="radio" class="form-check-input" name="editItemPriority" id="editItemPriority" value="Medium">Medium</label>
+                          </div>
+                          <div class="form-check disabled">
+                            <label class="form-check-label">
+                              <input type="radio" class="form-check-input`" name="editItemPriority" id="editItemPriority" value="Low">Low</label>
+                          </div>
+                      </div> 
+              
+                    
+                      </div>
+              
+                    <div><br></div>
+                    <div> 
+                    <input type="text" class="radio form-control" placeholder="To Do Assignee" name ="editItemAssignee" id="editItemAssignee"> 
+                    <br> 
+                    </div> 
+
+                    <div class='radio card bg-dark form-check-inline collapse'>
+                        <div class='card-header'><h4>Completion Status</h4>
+                        </div>
+                          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-success">
+                          <input type="radio" name="compStatus" id="editItemCompleted" value="true" > True</label>
+                        <label class="btn btn-danger"> 
+                          <input type="radio" name="compStatus" id="editItemCompleted" value="false" > False</label>
+                        </div> 
+                    </div> 
+                          <div><br></div>
+
+            
+                    <div class="row">
+                        <div class="col-sm-5">
+                          <div><br></div>
+                        </div>
+                        <button onclick="clickUpdateToDo()" class="radio btn btn-primary col-sm-2">Click to Update</button>
+                        <div class="col-sm-5">
+                        </div>
+                        <div><br></div>
+                    </div>
           </div>
-            <button onclick="clickUpdateToDo()" class="btn btn-primary col-sm-2">Click to Update</button>
-            <div class="col-sm-5">
-            </div>
-        </div>
- </div>
+      </div> 
+            <div><br></div>
+      
 
-
- <div><br><br></div>
-
-  
-    </div>
- <div>
-
-  <br> 
-  <br> 
-
-
-
-
-
-
-
-
-    
-
-    
+</div>   
 <!--load javascript files into it-->  
-</div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>  
 <script src="todo2.js"></script> 
-<script>
-    $(".dropdown-menu a ").click(function(){
-                $(this).parents(".input-group-btn").find('.btn').text($(this).text());
-            });
-</script>
 </body>
 </html>
-
-
-
-<!--
-    <!DOCTYPE html>
-<html>
- <head>
- <title>Intro to Node and MongoDB</title>
- </head>
- 
- <body>
- <h1>Into to Node and MongoDB</h1>
- <form method="post" action="/addname">
- <label>Enter Your Name</label><br>
- <input type="text" name="firstName" placeholder="Enter first name..." required>
- <input type="text" name="lastName" placeholder="Enter last name..." required>
- <input type="submit" value="Add Name">
- </form>
- </body>
-</html>
--->

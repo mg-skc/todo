@@ -57,7 +57,7 @@ async function itemCardDisplay(body) {
     card += "</div>";
     card += "<div class='card-footer'>"
     card += "<div class='card-footer'><small>"+"System ID: "+body._id +"</small><br>"
-    card += "<a href='#editArea' data-id="+body._id+" onclick='clickGetEditToDo(\"" +body._id+ "\")' class='item-edit btn btn-primary btn-sm' role='button' aria-pressed='true'>Edit</a>"
+    card += "<a href='#editToDoForm' data-toggle='collapse' data-target='#editToDoForm' data-id="+body._id+" onclick='clickGetEditToDo(\"" +body._id+ "\")' class='item-edit btn btn-primary btn-sm' role='button' aria-pressed='true'>Edit</a>"
     card += "<a href='' data-id="+body._id+" onclick='clickDeleteToDo(\"" +body._id+ "\")' class= 'item-delete btn btn-danger btn-sm' role='button' aria-pressed='true'>Delete</a></div>"
     card += "</div>";
     card += "</div>";
@@ -215,6 +215,30 @@ async function itemEditCard(body) {
     // Append the new item card to the item section section div
     $("#editId").append(card)
 };
+
+
+//888888888888888********WHERE I AM WITH CODING
+//888888888888888********WHERE I AM WITH CODING
+//888888888888888********WHERE I AM WITH CODING
+//888888888888888********WHERE I AM WITH CODING
+//888888888888888********WHERE I AM WITH CODING
+
+
+// THIS IS CODE FROM STACK OVERFLOW ON A PATCH COMMAND UPDATE : https://stackoverflow.com/questions/44631826/how-to-handle-a-patch-request
+// router.patch('/user/:_id', (req, res) => {
+
+//     User.findByIdAndUpdate( req.params._id , req.body, {
+  
+//         new: true
+  
+//       }).then(function(user) {
+//       res.send(user);
+  
+//       //in case of error
+//     }, function(err) {
+//       res.send(err);
+//     });
+//   });
 
 function clickUpdateToDo(){
    
