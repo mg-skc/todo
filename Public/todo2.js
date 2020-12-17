@@ -120,10 +120,25 @@ async function addToDo(){
     window.location.href = 'index.html';
     return true;
 }
-
+// DELETE TO DO ******** DELETE DELETE
+// DELETE TO DO ******** DELETE DELETE
+// DELETE TO DO ******** DELETE DELETE
 // DELETE TO DO ******** DELETE DELETE
 
+// function delConfirm(){
+//    let ans =  confirm("Are you sure you want to delete?");
+//    if(ans=true){clickDeleteToDo(deleteId);}{return;}
+//     }
+
 function clickDeleteToDo(deleteId){
+//  CODE THAT DOESN'T WORK..THE DELETE STILL HAPPENS. >:+()  
+//  var r = confirm("Continue delete?");
+//     if (r == true) {
+//    deleteToDo(deleteId);
+//     } else {
+//     return alert('Delete canceled');
+//     };
+    
 console.log('got to 137');
 
      deleteToDo(deleteId).then(function(body){
@@ -189,6 +204,7 @@ async function getEditToDo(editId){
     return body;
 }
 async function itemEditCard(body) {
+    $("#editId").empty();
     // Function for display article data and generating a bootstrap card
     let card = "<div class='card bg-dark text-center mx-auto col col-sm-4'>";
     card += "<div class='card-header'>"+ "Assignee: "+ body.assignee +"</div>";
@@ -199,10 +215,12 @@ async function itemEditCard(body) {
     card += "<p class='card-text'><small>" + "Last Updated: "+body.updatedAt + "</small></p>";
     card += "</div>";
     card += "<div class='card-footer'><small>"+"System ID: "+body._id +"</small></div>"
-    card += "</div>";
+    card += "<button onclick='clickUpdateToDo(\"" +body._id+ "\")' class='radio btn btn-primary'>Click to Update</button>"
+    card += "<br>";
     card += "</div>";
 
     // Append the new item card to the item section section div
+   
     $("#editId").append(card)
 };
 
@@ -230,27 +248,23 @@ async function itemEditCard(body) {
 //     });
 //   });
 
-function clickUpdateToDo(){
+function clickUpdateToDo(editId){
    
-    updateToDo().then(function(body){
-       //itemEditCard(body);
-       // document.getElementById('editItemName').innerHTML=body.itemName;
-      //  document.getElementById('editItemPriority').value.checked=body.itemPriority;
-      //  document.getElementById('editItemAssignee').innerHTML=body.assignee;
-     //   document.getElementById('editItemCompleted').value.checked=body.completed; 
+    updateToDo(editId).then(function(body){
+       
         console.log(body); 
     }).catch(function(err){
         console.log(err);
     });
 };
 
-async function updateToDo(){
+async function updateToDo(editId){
     let requestOptions = {
-        method: 'POST',
+        method: 'PATCH',
         headers: {'Content-Type': 'application/json'}
     }
     //let getEditId = document.getElementById('editSystemId').value;
-    let getEditId = editSystemId.value;
+    let getEditId = editId;
 
     const response = await fetch('/items/' + getEditId, requestOptions);
     const body = await response.json();
@@ -261,3 +275,35 @@ async function updateToDo(){
     window.location.href = 'index.html';
     return true;
 }
+    //     router.patch('/user/:_id', (req, res) => {
+
+    //     User.findByIdAndUpdate( req.params._id , req.body, {
+      
+    //         new: true
+      
+    //       }).then(function(user) {
+    //       res.send(user);
+      
+    //       //in case of error
+    //     }, function(err) {
+    //       res.send(err);
+    //     });
+    //   });
+
+    //from online on removing empty fields
+
+
+        // $(document).ready(function() {
+        // $('.remove-empty-values').submit(function() {
+        //     $(this).find(':input').filter(function() { return !this.value; }).attr('disabled', 'disabled');
+        //     return true; // make sure that the form is still submitted
+        // });
+        // });
+//Then put this as a class on the entire form:
+
+        // $(document).ready(function() {
+        // $('.remove-empty-values').submit(function() {
+        //     $(this).find(':input').filter(function() { return !this.value; }).attr('disabled', 'disabled');
+        //     return true; // make sure that the form is still submitted
+        // });
+        // });

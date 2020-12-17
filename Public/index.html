@@ -100,16 +100,18 @@
       
     
 
+        <!--EDIT "editToDoForm"      TO DO SECTION-->
         <!--EDIT       TO DO SECTION-->
         <!--EDIT       TO DO SECTION-->
-        <!--EDIT       TO DO SECTION-->
-      <div class = "accordion" id="editToDoForm">
+      
         <div class='radio card text-center handfont font-effect-outline collapse'>
             <h3 class='display-4 text-center-up'>Edit a To Do </h3> 
             <div id='editArea' class="col sm-4"></div> 
             <div id="editId" class="radio row"> </div>
             <div class="col sm-4"></div> 
                 <br>
+              <h2 id= class="text-center-up">Make your edits below and click the Update button above to save.</h2>
+              <br>
             <input type="text" class="radio form-control" placeholder="To Do Name" name ="editItemName" id="editItemName"> 
                 <br>  
                 <div class='card bg-dark radio form-check-inline'>
@@ -152,17 +154,17 @@
                           <div><br></div>
 
             
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-sm-5">
                           <div><br></div>
                         </div>
                         <button onclick="clickUpdateToDo()" class="radio btn btn-primary col-sm-2">Click to Update</button>
                         <div class="col-sm-5">
-                        </div>
+                        </div> -->
                         <div><br></div>
                     </div>
           </div>
-      </div> 
+      
             <div><br></div>
       
 
@@ -173,5 +175,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>  
 <script src="todo2.js"></script> 
+<script>window.onbeforeunload = function () {
+  window.scrollTo(0,0);};</script> 
 </body>
 </html>
