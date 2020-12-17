@@ -60,7 +60,7 @@ app.get('/items', function(request,response){
     }); 
 });
 
-//888888888888888********WHERE I AM WITH CODING
+
 app.post("/items", (request, response) => {
     console.log(request.body);
     let item = new Item(request.body);
@@ -83,7 +83,7 @@ app.delete('/items/:id', async (request, response) => {
     }
 });
 
-
+// THIS GETS THE RECORD TO EDIT
 app.get('/items/:id', (request, response) => {
     Item.findOne({_id: request.params.id}).exec((err, item) => {
         if (err) return console.error(err);
@@ -91,7 +91,43 @@ app.get('/items/:id', (request, response) => {
     })
 });
 
-//router.delete("/remove:studId"
+//888888888888888********WHERE I AM WITH CODING
+
+// THIS IS THE POST FUNCTION FOR UPDATING AN EXISTING TO DO
+app.post("/items/:id", (request, response) => {
+    console.log(request.body);
+    Item.findOneAndUpdate({_id: request.params.id}).exec((err, item) => {
+        if (err) return console.error(err);
+        response.send(item);
+    })
+});
+
+/* MY POST FROM ABOVE
+app.post("/items", (request, response) => {
+    console.log(request.body);
+    let item = new Item(request.body);
+    item.save((err, item) => {
+        if (err){
+            response.sendStatus(500);
+            return console.error(err);
+        }
+        response.sendStatus(200);
+    })
+});
+
+RYAN'S UPDATE SERVER SIDE (BUT REMEMBER HE ALREADY POPULATED THE FIELDS SO HE'S WRITING ALL RECORDS)
+app.post("/items", (request, response) => {
+    console.log(request.body);
+    let item = new Item(request.body);
+    item.save((err, item) => {
+        if (err){
+            response.sendStatus(500);
+            return console.error(err);
+        }
+        response.sendStatus(200);
+    })
+});
+*/
 
 
 

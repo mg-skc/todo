@@ -55,7 +55,10 @@ async function itemCardDisplay(body) {
     card += "<p class='card-text'>" + "Completed?  "+body.completed + "</p>";
     card += "<p class='card-text'><small>" + "Last Updated: "+body.updatedAt + "</small></p>";
     card += "</div>";
-    card += "<div class='card-footer'><small>"+"System ID: "+body._id +"</small></div>"
+    card += "<div class='card-footer'>"
+    card += "<div class='card-footer'><small>"+"System ID: "+body._id +"</small><br>"
+    card += "<a href='#editArea' data-id="+body._id+" onclick='clickGetEditToDo(\"" +body._id+ "\")' class='item-edit btn btn-primary btn-sm' role='button' aria-pressed='true'>Edit</a>"
+    card += "<a href='' data-id="+body._id+" onclick='clickDeleteToDo(\"" +body._id+ "\")' class= 'item-delete btn btn-danger btn-sm' role='button' aria-pressed='true'>Delete</a></div>"
     card += "</div>";
     card += "</div>";
 
@@ -128,12 +131,14 @@ async function addToDo(){
     return true;
 }
 
-function clickDeleteToDo(){
-    /* getToDoList().then(function(body){
-         for(let i = 0; i < body.length; i++){
-             console.log(body[i].itemName); 
-         } */
-     deleteToDo().then(function(body){
+// DELETE TO DO ******** DELETE DELETE
+
+function clickDeleteToDo(deleteId){
+console.log('got to 137');
+
+     deleteToDo(deleteId).then(function(body){
+
+
          
           console.log(body); 
 
@@ -144,14 +149,18 @@ function clickDeleteToDo(){
      });
  };
 
- async function deleteToDo(){
+ async function deleteToDo(deleteId){
+    console.log('got to 153');
     let requestOptions = {
-        method: 'DELETE', 
+        method: 'DELETE',
         headers: {'Content-Type': 'application/json'}
     }
-    let deleteId = document.getElementById('delSystemId').value;
+    let delId = deleteId;
 
-    const response = await fetch('/items/'+ deleteId, requestOptions);
+    let item = { _id: delId};
+    console.log(item);
+
+    const response = await fetch('/items/'+ delId, requestOptions);
     if (response.status != 204){
         throw Error('item not deleted!');
     }
@@ -160,29 +169,81 @@ function clickDeleteToDo(){
     return true;
 }
 
-function clickGetEditToDo(){
+function clickGetEditToDo(editId){
    
-     getEditToDo().then(function(body){
-         
-         document.getElementById('editItemName').innerHTML=body.itemName;
-         document.getElementById('editItemPriority').value.checked=body.itemPriority;
-         document.getElementById('editItemAssignee').innerHTML=body.assignee;
-         document.getElementById('editItemCompleted').value.checked=body.completed; 
+     getEditToDo(editId).then(function(body){
+        itemEditCard(body);
+        let editInfo =
+        document.getElementById('editItemName').innerHTML=body.itemName;
+        document.getElementById('editItemPriority').value.checked=body.itemPriority;
+        document.getElementById('editItemAssignee').innerHTML=body.assignee;
+        document.getElementById('editItemCompleted').value.checked=body.completed; 
          console.log(body); 
+         $("").append(card)
      }).catch(function(err){
          console.log(err);
      });
  };
-async function getEditToDo(){
+async function getEditToDo(editId){
     let requestOptions = {
         method: 'GET',
         headers: {'Content-Type': 'application/json'}
     }
-    let getEditId = document.getElementById('editSystemId').value;
+    let getEditId = editId;
+    
     const response = await fetch('/items/' + getEditId, requestOptions);
     const body = await response.json();
     if (response.status != 200){
         throw Error('Error!');
     }
     return body;
+}
+async function itemEditCard(body) {
+    // Function for display article data and generating a bootstrap card
+    let card = "<div class='card bg-dark text-center mx-auto col col-sm-4'>";
+    card += "<div class='card-header'>"+ "Assignee: "+ body.assignee +"</div>";
+    card += "<div class='card-body'>";
+    card += "<h5 class='card-title'>" + body.itemName + "</h5>";
+    card += "<p class='card-text'>" + "Priority: "+ body.itemPriority + "</p>";
+    card += "<p class='card-text'>" + "Completed?  "+body.completed + "</p>";
+    card += "<p class='card-text'><small>" + "Last Updated: "+body.updatedAt + "</small></p>";
+    card += "</div>";
+    card += "<div class='card-footer'><small>"+"System ID: "+body._id +"</small></div>"
+    card += "</div>";
+    card += "</div>";
+
+    // Append the new item card to the item section section div
+    $("#editId").append(card)
+};
+
+function clickUpdateToDo(){
+   
+    updateToDo().then(function(body){
+       //itemEditCard(body);
+       // document.getElementById('editItemName').innerHTML=body.itemName;
+      //  document.getElementById('editItemPriority').value.checked=body.itemPriority;
+      //  document.getElementById('editItemAssignee').innerHTML=body.assignee;
+     //   document.getElementById('editItemCompleted').value.checked=body.completed; 
+        console.log(body); 
+    }).catch(function(err){
+        console.log(err);
+    });
+};
+
+async function updateToDo(){
+    let requestOptions = {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'}
+    }
+    //let getEditId = document.getElementById('editSystemId').value;
+    let getEditId = editSystemId.value;
+
+    const response = await fetch('/items/' + getEditId, requestOptions);
+    const body = await response.json();
+
+    if (response.status != 200){
+        throw Error('Error - update not saved!');
+    }
+    window.location.href = 'index.html';
+    return true;
 }
