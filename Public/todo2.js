@@ -35,9 +35,9 @@ async function getToDoList(){
 
 async function itemCardDisplay(body) {
   
-    // Function for display article data and generating a bootstrap card
+    // Function for display article data and generating a bootstrap card  container-fluid
     let card = "<div class='card bg-dark'>";
-    card += "<div class='card-header container-fluid'>"+ "Assignee: "+ body.assignee +"</div>";
+    card += "<div class='card-header'>"+ "Assignee: "+ body.assignee +"</div>";
     card += "<div class='card-body'>";
     card += "<h5 class='card-title'>" + body.itemName + "</h5>";
     card += "<p class='card-text'>" + "Priority: "+ body.itemPriority + "</p>";
@@ -175,16 +175,48 @@ console.log('got to 137');
 }
 
 function clickGetEditToDo(editId){
+
    
      getEditToDo(editId).then(function(body){
         itemEditCard(body);
-        let editInfo =
-        document.getElementById('editItemName').innerHTML=body.itemName;
-        document.getElementById('editItemPriority').value.checked=body.itemPriority;
-        document.getElementById('editItemAssignee').innerHTML=body.assignee;
-        document.getElementById('editItemCompleted').value.checked=body.completed; 
+
+        let showPriority=body.itemPriority;
+        let showCompleted=body.completed;
+        console.log(showPriority);
+        console.log(showCompleted);
+        //let editInfo =
+        document.getElementById('editItemName').value=body.itemName;
+        //  document.getElementById('editItemPriority').value.checked=body.itemPriority;
+        //WILLIE:    use a switch or for, check value and then: cases string hml set val to true or whatever.... 
+        switch (showPriority) {
+            case "High":
+                document.getElementById('editPriorityHigh').checked=true;
+                break;
+            case "Medium":
+                document.getElementById('editPriorityMedium').checked=true;
+                break;    
+            case "Low":
+                document.getElementById('editPriorityLow').checked=true;
+                break;
+            default:
+                console.log("No Priority value found - error!")
+                break;
+        }
+        document.getElementById('editItemAssignee').value=body.assignee;
+        // document.getElementById('editItemCompleted').value.checked=body.completed; 
+        switch (showCompleted) {
+            case true:
+                document.getElementById('editCompletedTrue').checked=true;
+                break;
+            case false:
+                document.getElementById('editCompletedFalse').checked=true;
+                break;    
+            default:
+                console.log("No completion value found - error!")
+                break;
+        }
          console.log(body); 
-         $("").append(card)
+        // $("").append(card)
      }).catch(function(err){
          console.log(err);
      });
@@ -263,10 +295,11 @@ async function updateToDo(editId){
         method: 'PATCH',
         headers: {'Content-Type': 'application/json'}
     }
+    //WILLIE: AD A BODY PROP TO REQ OPTIONS. same as add to do...get it from the form...You can pass the prop for ID for editID in the JSOn thingy
     //let getEditId = document.getElementById('editSystemId').value;
     let getEditId = editId;
 
-    const response = await fetch('/items/' + getEditId, requestOptions);
+    const response = await fetch('/items/' + getEditId, requestOptions); //items...handle the Patch call no eed
     const body = await response.json();
 
     if (response.status != 200){

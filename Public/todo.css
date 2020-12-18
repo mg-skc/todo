@@ -31,6 +31,12 @@ body {
     color: whitesmoke;
 
 }
+
+.text-input-format {
+    font-family: 'Lato';
+    color: black;
+
+}
 .text-center-up{
     text-align: center;
     font-family:'Patrick Hand'; 

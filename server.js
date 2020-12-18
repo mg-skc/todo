@@ -94,7 +94,8 @@ app.get('/items/:id', (request, response) => {
 //888888888888888********WHERE I AM WITH CODING
 
 // THIS IS THE POST FUNCTION FOR UPDATING AN EXISTING TO DO
-app.post("/items/:id", (request, response) => {
+//if I pass the body, remove /:id to match route    
+app.patch("/items/:id", (request, response) => {
     console.log(request.body);
     Item.findOneAndUpdate({_id: request.params.id}).exec((err, item) => {
         if (err) return console.error(err);

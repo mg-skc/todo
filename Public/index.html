@@ -17,6 +17,7 @@
     <div class='card text-center handfont font-effect-outline'>
         <h1 class='display-2'>Mad's To Do List</h1> 
       </div>
+      <div>
       <br>
     <button onclick="clickButton()" class="btn btn-dark btn-lg">Start Here:  Find all To Do's </button>
       <br>
@@ -24,6 +25,7 @@
       <button data-toggle="collapse" class="btn btn-secondary btn-md" data-target="#itemcards">Close/Open To Do List</button>
       <br>
       <br>
+    </div>
       <div id ="deleteSuccessCopy" class="text-center-up font-effect-outline">
       </div>
 
@@ -75,15 +77,15 @@
                   <div class='radio card bg-dark  mx-auto form-check-inline'>
                     <div class='card-header'><h4>Completion Status</h4>
                     </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend mx-auto">
-                        <div class="btn-group btn-group-toggle mx-auto" data-toggle="buttons">
-                        <label class="btn btn-success active mx-auto">
-                        <input type="radio" name="compStatus" id="itemCompleted" value="true" > True</label>
-                        <label class="btn btn-danger mx-auto">
-                        <input type="radio" name="compStatus" id="itemCompleted" value="false" > False</label>
-                        </div> 
-                        </div> 
+                    <div class="input-group-prepend mx-auto">
+                      <div class="form-check ">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" name="ItemCompleted" id="itemCompletedTrue" value="True">True</label>
+                      </div>
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" name="ItemCompleted" id="itemCompletedFalse" value="False">False</label>
+                      </div>
                     </div> 
                   </div>
                 <br> 
@@ -112,7 +114,7 @@
                 <br>
               <h2 id= class="text-center-up">Make your edits below and click the Update button above to save.</h2>
               <br>
-            <input type="text" class="radio form-control" placeholder="To Do Name" name ="editItemName" id="editItemName"> 
+            <input type="text" class="text-input-format form-control" placeholder="To Do Name" name ="editItemName" id="editItemName"> 
                 <br>  
                 <div class='card bg-dark radio form-check-inline'>
                     <div class='card-header'><h4>Priority</h4></div>
@@ -120,15 +122,15 @@
                         <div class="input-group-prepend mx-auto">
                           <div class="form-check ">
                             <label class="form-check-label">
-                              <input type="radio" class="form-check-input" name="editItemPriority" id="editItemPriority" value="High">High</label>
+                              <input type="radio" class="form-check-input" name="editItemPriority" id="editPriorityHigh" value="High">High</label>
                           </div>
                           <div class="form-check">
                             <label class="form-check-label">
-                              <input type="radio" class="form-check-input" name="editItemPriority" id="editItemPriority" value="Medium">Medium</label>
+                              <input type="radio" class="form-check-input" name="editItemPriority" id="editPriorityMedium" value="Medium">Medium</label>
                           </div>
-                          <div class="form-check disabled">
+                          <div class="form-check">
                             <label class="form-check-label">
-                              <input type="radio" class="form-check-input`" name="editItemPriority" id="editItemPriority" value="Low">Low</label>
+                              <input type="radio" class="form-check-input`" name="editItemPriority" id="editPriorityLow" value="Low">Low</label>
                           </div>
                       </div> 
               
@@ -137,18 +139,22 @@
               
                     <div><br></div>
                     <div> 
-                    <input type="text" class="radio form-control" placeholder="To Do Assignee" name ="editItemAssignee" id="editItemAssignee"> 
+                    <input type="text" class="text-input-format form-control" placeholder="To Do Assignee" name ="editItemAssignee" id="editItemAssignee"> 
                     <br> 
                     </div> 
 
                     <div class='radio card bg-dark form-check-inline collapse'>
                         <div class='card-header'><h4>Completion Status</h4>
                         </div>
-                          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                        <label class="btn btn-success">
-                          <input type="radio" name="compStatus" id="editItemCompleted" value="true" > True</label>
-                        <label class="btn btn-danger"> 
-                          <input type="radio" name="compStatus" id="editItemCompleted" value="false" > False</label>
+                        <div class="input-group-prepend mx-auto">
+                          <div class="form-check ">
+                            <label class="form-check-label">
+                              <input type="radio" class="form-check-input" name="editItemCompleted" id="editCompletedTrue" value="True">True</label>
+                          </div>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input type="radio" class="form-check-input" name="editItemCompleted" id="editCompletedFalse" value="False">False</label>
+                          </div>
                         </div> 
                     </div> 
                           <div><br></div>
