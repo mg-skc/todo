@@ -45,7 +45,7 @@
 
             <div name="addToDoForm"> 
             <br>
-            <input type="text" class="form-control" placeholder="To Do Name" name ="itemName" id="itemName"> 
+            <input type="text" class="form-control text-input-format" placeholder="To Do Name" name ="itemName" id="itemName"> 
             <br> 
             </div> 
             <div class='radio card text-center bg-dark mx-auto form-check-inline'>
@@ -70,21 +70,22 @@
               </div>
                   <div><br></div>
                     <div> 
-                    <input type="text" class="form-control radio" placeholder="To Do Assignee" name ="itemAssignee" id="itemAssignee"> 
+                    <input type="text" class="form-control text-input-format" placeholder="To Do Assignee" name ="itemAssignee" id="itemAssignee"> 
                     <br> 
                     </div> 
 
                   <div class='radio card bg-dark  mx-auto form-check-inline'>
-                    <div class='card-header'><h4>Completion Status</h4>
-                    </div>
+                        <div class='card-header'>
+                        <h4>Completion Status</h4>
+                        </div>
                     <div class="input-group-prepend mx-auto">
-                      <div class="form-check ">
-                        <label class="form-check-label">
-                          <input type="radio" class="form-check-input" name="ItemCompleted" id="itemCompletedTrue" value="True">True</label>
-                      </div>
                       <div class="form-check">
                         <label class="form-check-label">
-                          <input type="radio" class="form-check-input" name="ItemCompleted" id="itemCompletedFalse" value="False">False</label>
+                          <input type="radio" class="form-check-input" name="itemCompletedTrue" id="itemCompletedTrue" value="True">True</label>
+                      
+                      
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" name="itemCompletedFalse" id="itemCompletedFalse" value="False">False</label>
                       </div>
                     </div> 
                   </div>
@@ -112,7 +113,7 @@
             <div id="editId" class="radio row"> </div>
             <div class="col sm-4"></div> 
                 <br>
-              <h2 id= class="text-center-up">Make your edits below and click the Update button above to save.</h2>
+              <h2 class="text-center-up">Make your edits below and click the Update button above to save.</h2>
               <br>
             <input type="text" class="text-input-format form-control" placeholder="To Do Name" name ="editItemName" id="editItemName"> 
                 <br>  
