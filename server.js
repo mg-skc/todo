@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 var List = require('./models/ToDo.js'); 
 var Item = require('./models/ToDoItem.js'); 
+//putting in lodash
+var _ = require('lodash');
+
 //load in express
 const express = require('express');
 const path = require('path');
@@ -95,13 +98,40 @@ app.get('/items/:id', (request, response) => {
 
 // THIS IS THE POST FUNCTION FOR UPDATING AN EXISTING TO DO
 //if I pass the body, remove /:id to match route    
-app.patch("/items/:id", (request, response) => {
+app.put("/items/:id", async (request, response) => {
     console.log(request.body);
-    Item.findOneAndUpdate({_id: request.params.id}).exec((err, item) => {
+    let updatedItem = new Item(request.body);
+    Item.findOne({_id: request.params.id}).exec((err, item) => {
         if (err) return console.error(err);
-        response.send(item);
-    })
+        itemName = updatedItem.name;
+        item.assignedTo = updatedItem.assignedTo;
+        item.priority = updatedItem.priority;
+        item.completed = updatedItem.completed;
+        try {
+            response.sendStatus(200);
+            item.save();
+        } catch {
+            response.sendStatus(500);
+        }
+    });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+//     Item.findOneAndUpdate({_id: request.params.id}).exec((err, item) => {
+//         if (err) return console.error(err);
+//         response.send(item);
+//     })
+// });
 
 /* MY POST FROM ABOVE for a new record
 app.post("/items", (request, response) => {
@@ -128,6 +158,26 @@ app.post("/items", (request, response) => {
         response.sendStatus(200);
     })
 });
+
+
+app.put('/tasks/:id', async (request, response) => {
+    let updatedTask = new Task(request.body);
+    Task.findOne({_id: request.params.id}).exec((err, item) => {
+        if (err) return console.error(err);
+        item.name = updatedTask.name;
+        item.assignedTo = updatedTask.assignedTo;
+        item.priority = updatedTask.priority;
+        item.completed = updatedTask.completed;
+        try {
+            response.sendStatus(200);
+            item.save();
+        } catch {
+            response.sendStatus(500);
+        }
+    });
+});
+
+
 */
 
 

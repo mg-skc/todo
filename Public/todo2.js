@@ -1,3 +1,7 @@
+var editCardData;
+var editedItem;
+//var isEqual = require('lodash.isequal');
+
 async function getToDoList(){
     let requestOptions = {
         method: "GET",
@@ -216,7 +220,6 @@ function clickGetEditToDo(editId){
                 break;
         }
          console.log(body); 
-        // $("").append(card)
      }).catch(function(err){
          console.log(err);
      });
@@ -236,6 +239,7 @@ async function getEditToDo(editId){
     return body;
 }
 async function itemEditCard(body) {
+    //code line below empties card so no dups on extra presses :)
     $("#editId").empty();
     // Function for display article data and generating a bootstrap card
     let card = "<div class='card bg-dark text-center mx-auto col col-sm-4'>";
@@ -252,7 +256,8 @@ async function itemEditCard(body) {
     card += "</div>";
 
     // Append the new item card to the item section section div
-   
+    editCardData = body;
+    console.log(editCardData);
     $("#editId").append(card)
 };
 
@@ -281,25 +286,104 @@ async function itemEditCard(body) {
 //   });
 
 function clickUpdateToDo(editId){
+    console.log(document.querySelector('input[name="editItemCompleted"]:checked').value)
+    console.log(document.querySelector('input[name="editItemPriority"]:checked').value)
+    console.log(editId);
+
    
     updateToDo(editId).then(function(body){
+             //getToDoList();
+              console.log(body); 
+    
+    
+             
+         }).catch(function(err){
+             console.log(err);
+         });
+     };
+    // let editedPriority = document.querySelector('input[name="editItemPriority"]:checked').value;
+    //  let editedCompStatus = document.querySelector('input[name="editItemCompleted"]:checked').value; 
+    // {switch (editedPriorityCheck) {
+    //         case "High":
+    //             document.getElementById('editPriorityHigh').checked=true;
+    //             break;
+    //         case "Medium":
+    //             document.getElementById('editPriorityMedium').checked=true;
+    //             break;    
+    //         case "Low":
+    //             document.getElementById('editPriorityLow').checked=true;
+    //             break;
+    //         default:
+    //             console.log("No Priority value found - error!")
+    //             break;
+    //     }
+    // let editedPriority = editedPriorityCheck;
+    // console.log(document.getElementById('editPriorityLow').checked);
+    // console.log(editedPriority);
+  
+    //    { switch (editCompletedCheck) {
+    //         case "true":
+    //             document.getElementById('editCompletedTrue').checked=true;
+    //             break;
+    //         case "false":
+    //             document.getElementById('editCompletedFalse').checked=true;
+    //             break;    
+    //         default:
+    //             console.log("No completion value found - error!")
+    //             break;
+    //     }
+    //     }
+    //     let editedCompStatus = editCompletedCheck;
+    //     console.log(document.getElementById('editCompletedFalse').checked);
+    //     console.log(editedCompStatus);
+
+    // let editedItem = {
+
+    //         itemName : document.getElementById('editItemName').value,
+    //         itemPriority : document.querySelector('input[name="editItemPriority"]:checked').value,
+    //         assignee : document.getElementById('editItemAssignee').value,
+    //         completed : document.querySelector('input[name="editItemCompleted"]:checked').value,
+    // }
+
+   //_.isEqual(editCardData,editedItem)
+        // console.log(editedItem);
+        // console.log(_.isEqual(editCardData,editedItem));
+
+
+   
+//     updateToDo(editId).then(function(body){
        
-        console.log(body); 
-    }).catch(function(err){
-        console.log(err);
-    });
-};
+//         console.log(body); 
+//     }).catch(function(err){
+//         console.log(err);
+//     });
+// };
 
 async function updateToDo(editId){
+
+    let editedItem = {
+        _id: editId,
+        itemName : document.getElementById('editItemName').value,
+        itemPriority : document.querySelector('input[name="editItemPriority"]:checked').value,
+        assignee : document.getElementById('editItemAssignee').value,
+        completed : document.querySelector('input[name="editItemCompleted"]:checked').value,
+}
+
+//_.isEqual(editCardData,editedItem)
+    console.log(editedItem);
+
     let requestOptions = {
-        method: 'PATCH',
+        method: 'PUT',
+        body: JSON.stringify(editedItem),
         headers: {'Content-Type': 'application/json'}
     }
     //WILLIE: AD A BODY PROP TO REQ OPTIONS. same as add to do...get it from the form...You can pass the prop for ID for editID in the JSOn thingy
     //let getEditId = document.getElementById('editSystemId').value;
-    let getEditId = editId;
+   // let getEditId = editId;
 
-    const response = await fetch('/items/' + getEditId, requestOptions); //items...handle the Patch call no eed
+    
+
+    const response = await fetch('/items/' + editId, requestOptions); //items...handle the Patch call no eed
     const body = await response.json();
 
     if (response.status != 200){
@@ -307,7 +391,7 @@ async function updateToDo(editId){
     }
     window.location.href = 'index.html';
     return true;
-}
+};
     //     router.patch('/user/:_id', (req, res) => {
 
     //     User.findByIdAndUpdate( req.params._id , req.body, {
@@ -338,5 +422,4 @@ async function updateToDo(editId){
         // $('.remove-empty-values').submit(function() {
         //     $(this).find(':input').filter(function() { return !this.value; }).attr('disabled', 'disabled');
         //     return true; // make sure that the form is still submitted
-        // });
         // });
