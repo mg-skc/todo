@@ -360,20 +360,22 @@ function clickUpdateToDo(editId){
 // };
 
 async function updateToDo(editId){
-
+   var newCompleted =  JSON.parse(document.querySelector('input[name="editItemCompleted"]:checked').value);
+    console.log(newCompleted);
     let editedItem = {
         _id: editId,
         itemName : document.getElementById('editItemName').value,
         itemPriority : document.querySelector('input[name="editItemPriority"]:checked').value,
         assignee : document.getElementById('editItemAssignee').value,
-        completed : document.querySelector('input[name="editItemCompleted"]:checked').value,
-}
+        completed: newCompleted
+        // completed : document.querySelector('input[name="editItemCompleted"]:checked').value
+};
 
-//_.isEqual(editCardData,editedItem)
+//_.isEqual(editCardData,editedItem)  JSON.stringify()
     console.log(editedItem);
 
     let requestOptions = {
-        method: 'PUT',
+        method: 'PATCH',
         body: JSON.stringify(editedItem),
         headers: {'Content-Type': 'application/json'}
     }
@@ -383,43 +385,14 @@ async function updateToDo(editId){
 
     
 
-    const response = await fetch('/items/' + editId, requestOptions); //items...handle the Patch call no eed
+    const response = await fetch('/items', requestOptions); //items...handle the Patch call no eed    + editId
     const body = await response.json();
 
     if (response.status != 200){
         throw Error('Error - update not saved!');
     }
+    alert('record saved!');
     window.location.href = 'index.html';
     return true;
 };
-    //     router.patch('/user/:_id', (req, res) => {
-
-    //     User.findByIdAndUpdate( req.params._id , req.body, {
-      
-    //         new: true
-      
-    //       }).then(function(user) {
-    //       res.send(user);
-      
-    //       //in case of error
-    //     }, function(err) {
-    //       res.send(err);
-    //     });
-    //   });
-
-    //from online on removing empty fields
-
-
-        // $(document).ready(function() {
-        // $('.remove-empty-values').submit(function() {
-        //     $(this).find(':input').filter(function() { return !this.value; }).attr('disabled', 'disabled');
-        //     return true; // make sure that the form is still submitted
-        // });
-        // });
-//Then put this as a class on the entire form:
-
-        // $(document).ready(function() {
-        // $('.remove-empty-values').submit(function() {
-        //     $(this).find(':input').filter(function() { return !this.value; }).attr('disabled', 'disabled');
-        //     return true; // make sure that the form is still submitted
-        // });
+   

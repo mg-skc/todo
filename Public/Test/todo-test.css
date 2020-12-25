@@ -1,0 +1,61 @@
+html {
+    scroll-behavior: smooth;
+  }
+
+body {
+    background: url(absolutvision-82TpEld0_e4-unsplash.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    font-family: 'Lato';
+    color: whitesmoke;
+  }
+
+.handfont {
+    font-family:'Patrick Hand'; 
+    color: whitesmoke;
+    background-color: transparent;
+    
+
+}
+
+#itemcards {
+    font-family: 'Lato';
+    color: whitesmoke;
+
+}
+
+.radio {
+    font-family: 'Lato';
+    color: whitesmoke;
+
+}
+
+.text-input-format {
+    font-family: 'Lato';
+    color: black;
+
+}
+.text-center-up{
+    text-align: center;
+    font-family:'Patrick Hand'; 
+    }
+
+#deleteSuccessCopy {
+        color: whitesmoke;
+        font-size: x-large;
+}
+
+.icon-play{
+    background-image : url(../img/Clock-Play.png);
+    background-size: cover;
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+  }
+
+  /* <i class="far fa-trash-alt"></i>
+
+
+

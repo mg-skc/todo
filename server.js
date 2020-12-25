@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 const mongoDB = 'mongodb+srv://MGengelbach:6zy6RKSSc3p@cluster0.lhqif.mongodb.net/<dbname>?retryWrites=true&w=majority'; 
 
 
-mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true}, (err, client) => {
+mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false}, (err, client) => {
     if(err) return console.error(err);
     console.log('Connected to database'); 
 }); 
@@ -97,154 +97,53 @@ app.get('/items/:id', (request, response) => {
 //888888888888888********WHERE I AM WITH CODING
 
 // THIS IS THE POST FUNCTION FOR UPDATING AN EXISTING TO DO
-//if I pass the body, remove /:id to match route    
-app.put("/items/:id", async (request, response) => {
+//if I pass the body, remove /:id to match route      /:id
+app.patch("/items", (request, response) => {
     console.log(request.body);
     let updatedItem = new Item(request.body);
-    Item.findOne({_id: request.params.id}).exec((err, item) => {
+    Item.findOneAndUpdate({id: request.params.id}).exec((err, item) => {
         if (err) return console.error(err);
-        itemName = updatedItem.name;
-        item.assignedTo = updatedItem.assignedTo;
-        item.priority = updatedItem.priority;
-        item.completed = updatedItem.completed;
-        try {
-            response.sendStatus(200);
-            item.save();
-        } catch {
-            response.sendStatus(500);
-        }
+        itemName = updatedItem.itemName;
+        assignee = updatedItem.assignee;
+        itemPriority = updatedItem.itemPriority;
+        completed = updatedItem.completed;
+        item.save((err, item) => {
+            if (err){
+                response.sendStatus(500);
+                return console.error(err);
+            }
+            // response.sendStatus(200);
+            console.log(item);
+            response.status(200).send({ status: 'OK'});
+        })
     });
 });
 
+        // try {
+        //     response.sendStatus(200);
+        //     item.save();
+        //     } catch {
+        //         response.sendStatus(500);
+        //             }
+        //         });
+        //     });
 
-
-
-
-
-
-
-
-
-
-
-//     Item.findOneAndUpdate({_id: request.params.id}).exec((err, item) => {
-//         if (err) return console.error(err);
-//         response.send(item);
-//     })
+// });
 // });
 
-/* MY POST FROM ABOVE for a new record
-app.post("/items", (request, response) => {
-    console.log(request.body);
-    let item = new Item(request.body);
-    item.save((err, item) => {
-        if (err){
-            response.sendStatus(500);
-            return console.error(err);
-        }
-        response.sendStatus(200);
-    })
-});
-
-RYAN'S UPDATE SERVER SIDE (BUT REMEMBER HE ALREADY POPULATED THE FIELDS SO HE'S WRITING ALL RECORDS)
-app.post("/items", (request, response) => {
-    console.log(request.body);
-    let item = new Item(request.body);
-    item.save((err, item) => {
-        if (err){
-            response.sendStatus(500);
-            return console.error(err);
-        }
-        response.sendStatus(200);
-    })
-});
-
-
-app.put('/tasks/:id', async (request, response) => {
-    let updatedTask = new Task(request.body);
-    Task.findOne({_id: request.params.id}).exec((err, item) => {
-        if (err) return console.error(err);
-        item.name = updatedTask.name;
-        item.assignedTo = updatedTask.assignedTo;
-        item.priority = updatedTask.priority;
-        item.completed = updatedTask.completed;
-        try {
-            response.sendStatus(200);
-            item.save();
-        } catch {
-            response.sendStatus(500);
-        }
-    });
-});
-
-
-*/
-
-
-
-   
-
-
-/*
-db.once('open', function(){
-    //your tutorial and new code go here. 
-    console.log("We're connected");
-    
-    //create a new item instance using the Item model
-    let item1 = new Item({
-        itemName     : "Do Dishes",
-        itemPriority : "High" ,
-        assignee     : "Willie",
-        completed    : false  
-    }); 
-}); 
-  
-/*Here I've created my own new item
-    let item3 = new Item({
-        itemName     : "Make chocolate pudding",
-        itemPriority : "Medium" ,
-        assignee     : "Mad",
-        completed    : false  
-    }); 
-    */
-//Here's the commmand to save and log the new item I created.
-/*
-    item3.save(function(err, item){
-        if (err) return console.error(err);
-        console.log(item); 
-    }); 
-
-    let notComplete = Item.find({completed: false }, function(err, arr){});
-        console.log(notComplete); 
- } ); 
-*/
-    //create new list with our item. 
-    /*
-    var myList = new List({
-        name : "Mad's List",
-        items : [
-            {
-            item : item3._id, 
-            }
-            ],
-    }); 
-
-
-
-    //how to add more items to the list
-    //how to find an item
-   app.get('/medium', function(request,response){ 
-    Item.find({
-        assignee: "Mad" // traverse through list and find an item by priority
-        }, function(err, items){
-        if (err) return console.error(err);
-        response.send(items)
-        });
-
-    });
-    */
-    //how to update an item
-    //how to delete an item 
-
-   // myList.save(); //add callback to error check if we wanted
-
+// app.put('/tasks/:id', async (request, response) => {
+//     let updatedTask = new Task(request.body);
+//     Task.findOne({_id: request.params.id}).exec((err, item) => {
+//         if (err) return console.error(err);
+//         item.name = updatedTask.name;
+//         item.assignedTo = updatedTask.assignedTo;
+//         item.priority = updatedTask.priority;
+//         item.completed = updatedTask.completed;
+//         try {
+//             response.sendStatus(200);
+//             item.save();
+//         } catch {
+//             response.sendStatus(500);
+//         }
+//     });
+// });
