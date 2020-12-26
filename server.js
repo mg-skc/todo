@@ -100,25 +100,71 @@ app.get('/items/:id', (request, response) => {
 //if I pass the body, remove /:id to match route      /:id
 app.patch("/items", (request, response) => {
     console.log(request.body);
-    let updatedItem = new Item(request.body);
-    Item.findOneAndUpdate({id: request.params.id}).exec((err, item) => {
-        if (err) return console.error(err);
-        itemName = updatedItem.itemName;
-        assignee = updatedItem.assignee;
-        itemPriority = updatedItem.itemPriority;
-        completed = updatedItem.completed;
-        item.save((err, item) => {
-            if (err){
-                response.sendStatus(500);
-                return console.error(err);
-            }
-            // response.sendStatus(200);
-            console.log(item);
-            response.status(200).send({ status: 'OK'});
-        })
-    });
-});
+    var itemUpdateId = request.body._id;
+    var itemUpdateName = request.body.itemName;
+    var itemUpdateAssignee = request.body.assignee;
+    var itemUpdateItemPriority = request.body.itemPriority;
+    var itemUpdateComplete = request.body.completed;
+    console.log(itemUpdateId);
+    //let updatedItem = new Item(request.body);
+   Item.findByIdAndUpdate(itemUpdateId, { 
+            itemName : itemUpdateName,
+            assignee : itemUpdateAssignee,
+            itemPriority : itemUpdateItemPriority,
+            completed : itemUpdateComplete
+        }, 
+         function (err, docs) { 
+        if (err){ 
+            console.log(err) 
+            } 
+    else{ 
+        console.log("here's the old record:"+docs);
+        response.status(200).send({ status: 'OK'})
+    } 
+    }); 
+}); 
 
+
+
+
+
+
+
+//     Item.findOneAndUpdate({id: request.params.id}).exec((err, item) => {
+//         if (err) return console.error(err);
+//         itemName = updatedItem.itemName;
+//         assignee = updatedItem.assignee;
+//         itemPriority = updatedItem.itemPriority;
+//         completed = updatedItem.completed;
+//         item.save((err, item) => {
+//             if (err){
+//                 response.sendStatus(500);
+//                 return console.error(err);
+//             }
+//             // response.sendStatus(200);
+//             console.log(item);
+//             response.status(200).send({ status: 'OK'})
+//         })
+//     });
+// });
+
+
+
+
+        // var user_id = '5eb985d440bd2155e4d788e2'; 
+        // User.findByIdAndUpdate(user_id, { name: 'Gourav' }, 
+        // function (err, docs) { 
+        // if (err){ 
+        // console.log(err) 
+        // } 
+        // else{ 
+        // console.log("Updated User : ", docs); 
+        // } 
+        // }); 
+        
+        
+        
+        
         // try {
         //     response.sendStatus(200);
         //     item.save();

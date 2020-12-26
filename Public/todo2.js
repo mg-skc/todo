@@ -173,8 +173,10 @@ console.log('got to 137');
     if (response.status != 204){
         throw Error('item not deleted!');
     }
+    alert('Delete completed');
     //document.getElementById("delSystemId").innerHTML = " ";
     document.getElementById("deleteSuccessCopy").innerHTML = "Delete Successful";
+    window.location.href = 'index.html';
     return true;
 }
 
@@ -391,7 +393,7 @@ async function updateToDo(editId){
     if (response.status != 200){
         throw Error('Error - update not saved!');
     }
-    alert('record saved!');
+    alert('Update saved!');
     window.location.href = 'index.html';
     return true;
 };
