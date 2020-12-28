@@ -107,7 +107,7 @@
         <!--EDIT       TO DO SECTION-->
         <!--EDIT       TO DO SECTION-->
       
-        <div class='radio card text-center handfont font-effect-outline collapse'>
+        <div id='editSection' class='radio card text-center handfont font-effect-outline collapse'>
             <h3 class='display-4 text-center-up'>Edit a To Do </h3> 
             <div id='editArea' class="col sm-4"></div> 
             <div id="editId" class="radio row"> </div>
@@ -115,6 +115,7 @@
                 <br>
               <h2 class="text-center-up">Make your edits below and click the Update button above to save.</h2>
               <br>
+              <a id="editJumpHere"></a>
             <input type="text" class="text-input-format form-control" placeholder="To Do Name" name ="editItemName" id="editItemName"> 
                 <br>  
                 <div class='card bg-dark radio form-check-inline'>
@@ -159,16 +160,6 @@
                         </div> 
                     </div> 
                           <div><br></div>
-
-            
-                    <!-- <div class="row">
-                        <div class="col-sm-5">
-                          <div><br></div>
-                        </div>
-                        <button onclick="clickUpdateToDo()" class="radio btn btn-primary col-sm-2">Click to Update</button>
-                        <div class="col-sm-5">
-                        </div> -->
-                        <div><br></div>
                     </div>
           </div>
       
@@ -184,6 +175,8 @@
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
 <script src="todo2.js"></script> 
 <script>window.onbeforeunload = function () {
-  window.scrollTo(0,0);};</script> 
+  window.scrollTo(0,0);};
+  editSection.style.display = "none";
+  </script> 
 </body>
 </html>

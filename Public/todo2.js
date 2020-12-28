@@ -52,7 +52,7 @@ async function itemCardDisplay(body) {
     card += "<div class='card-footer'>"
     card += "<div class='card-footer'><small>"+"System ID: "+body._id +"</small><br>"
     card += "<a href='#editToDoForm' data-toggle='collapse' data-target='#editToDoForm' data-id="+body._id+" onclick='clickGetEditToDo(\"" +body._id+ "\")' class='item-edit btn btn-primary btn-sm' role='button' aria-pressed='true'>Edit</a>"
-    card += "<a href='' data-id="+body._id+" onclick='clickDeleteToDo(\"" +body._id+ "\")' class= 'item-delete btn btn-danger btn-sm' role='button' aria-pressed='true'>Delete</a></div>"
+    card += "<a href='editJumpHere' data-id="+body._id+" onclick='clickDeleteToDo(\"" +body._id+ "\")' class= 'item-delete btn btn-danger btn-sm' role='button' aria-pressed='true'>Delete</a></div>"
     card += "</div>";
     card += "</div>";
     
@@ -182,8 +182,11 @@ console.log(deleteId);
 };
 
 function clickGetEditToDo(editId){
+    {
+        editSection.style.display = "block";
+        window.location = 'index.html#editJumpHere';
 
-   
+    }{
      getEditToDo(editId).then(function(body){
         itemEditCard(body);
 
@@ -227,6 +230,7 @@ function clickGetEditToDo(editId){
          console.log(err);
      });
  };
+};
 async function getEditToDo(editId){
     let requestOptions = {
         method: 'GET',
