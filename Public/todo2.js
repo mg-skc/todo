@@ -1,5 +1,6 @@
 var editCardData;
 var editedItem;
+var deleteId;
 //var isEqual = require('lodash.isequal');
 
 async function getToDoList(){
@@ -136,20 +137,20 @@ async function addToDo(){
 
 function clickDeleteToDo(deleteId){
 //  CODE THAT DOESN'T WORK..THE DELETE STILL HAPPENS. >:+()  
-//  var r = confirm("Continue delete?");
-//     if (r == true) {
-//    deleteToDo(deleteId);
-//     } else {
-//     return alert('Delete canceled');
-//     };
+ var r = confirm("Continue delete?");
+    if (r == true) {
+   deleteToDo(deleteId);
+    } else {
+    return alert('Delete canceled');
+    };
     
-console.log('got to 137');
+console.log(deleteId);
 
-     deleteToDo(deleteId).then(function(body){
+     deleteToDo(deleteId).then(function(deleteId){
 
 
          
-          console.log(body); 
+          console.log(deleteId); 
 
 
          
@@ -164,21 +165,21 @@ console.log('got to 137');
         method: 'DELETE',
         headers: {'Content-Type': 'application/json'}
     }
-    let delId = deleteId;
+    // let delId = deleteId;
 
-    let item = { _id: delId};
-    console.log(item);
+    // let item = { _id: delId};
+    // console.log(item);
 
-    const response = await fetch('/items/'+ delId, requestOptions);
+    const response = await fetch('/items/'+deleteId, requestOptions);
     if (response.status != 204){
         throw Error('item not deleted!');
     }
     alert('Delete completed');
     //document.getElementById("delSystemId").innerHTML = " ";
-    document.getElementById("deleteSuccessCopy").innerHTML = "Delete Successful";
-    window.location.href = 'index.html';
+   // document.getElementById("deleteSuccessCopy").innerHTML = "Delete Successful";
+   window.location.href = 'index.html';
     return true;
-}
+};
 
 function clickGetEditToDo(editId){
 

@@ -86,6 +86,24 @@ app.delete('/items/:id', async (request, response) => {
     }
 });
 
+// //New delete?
+// app.delete('/items', (request, response) => {
+//     console.log(request.body._id);
+//     var itemDeleteId = request.body._id;
+//     console.log(itemDeleteId);
+//    Item.findByIdAndDelete(itemDeleteId,function (err, docs) { 
+//         if (err){ 
+//             response.sendStatus(404);
+//             console.log(err) 
+//              console.log('didnt delete it!')
+//             } 
+//     else{ 
+//         console.log("here's the deleted record:"+docs);
+//         response.status(204).send({ status: 'Deleted'})
+//     } 
+//     }); 
+// }); 
+
 // THIS GETS THE RECORD TO EDIT
 app.get('/items/:id', (request, response) => {
     Item.findOne({_id: request.params.id}).exec((err, item) => {
