@@ -9,6 +9,7 @@
     "express-validator": "^6.8.0",
     "lodash": "^4.17.20",
     "lodash.isequal": "^4.5.0",
+    "mongodb": "^3.6.3",
     "mongoose": "^5.11.2"
   },
   "scripts": {
